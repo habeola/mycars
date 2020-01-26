@@ -1,0 +1,315 @@
+
+<style>
+    .fas {
+        margin-left:95%
+    }
+</style>
+
+<div class="left_sidebar_area">
+        <aside class="left_widgets p_filter_widgets">
+            <div class="l_w_title">
+                <h3>Filters</h3>
+            </div>
+            <form method="GET" action="{% url 'sidebar' %}">
+                <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+            
+                    <!-- Accordion card -->
+                    <div class="card">
+                
+                    <!-- Card header -->
+                    <div class="card-header" role="tab" id="headingOne1">
+                        <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true"
+                        aria-controls="collapseOne1">
+                        <h5 class="mb-0">
+                            Brand <i class="fas fa-angle-down rotate-icon"></i>
+                        </h5>
+                        </a>
+                    </div>
+                
+                    <!-- Card body -->
+                    <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1"
+                        data-parent="#accordionEx">
+                        <div class="card-body"> 
+                            <div class="form-check">
+                            {% for obj in post %}  
+                            <ul>                  
+                                <li>
+                                <input class="form-check-input" type="checkbox" value="{{ obj.name }}" id="{{ obj.name }}" name="brand">
+                                <label class="form-check-label" for="{{ obj.name }}">
+                                    {{ obj.name }}                       
+                                </label>
+                                </li>   
+                            </ul>               
+                                {% endfor %} 
+                            </div>                           
+                        </div>
+                    </div>
+                
+                    </div> 
+                    <!-- Accordion card -->
+                
+                    <!-- Accordion card -->
+                    <div class="card">
+                
+                    <!-- Card header -->
+                    <div class="card-header" role="tab" id="headingTwo2">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseTwo2"
+                        aria-expanded="false" aria-controls="collapseTwo2">
+                        <h5 class="mb-0">
+                            Year <i class="fas fa-angle-down rotate-icon"></i>
+                        </h5>
+                        </a>
+                    </div>
+                
+                    <!-- Card body -->
+                    <div id="collapseTwo2" class="collapse" role="tabpanel" aria-labelledby="headingTwo2"
+                        data-parent="#accordionEx">
+                        <div class="card-body">
+                            <span>
+                                <select name="min_year" id="min_year" class=custom-select-sm>
+                                        <option selected>From</option>
+                                        <option value="2003">2003</option>
+                                        <option value="2004">2004</option>
+                                        <option value="2005">2005</option>
+                                        <option value="2006">2006</option>
+                                        <option value="2007">2007</option>
+                                        <option value="2008">2008</option>
+                                        <option value="2009">2009</option>
+                                        <option value="2010">2010</option>
+                                        <option value="2011">2011</option>
+                                        <option value="2012">2012</option>
+                                        <option value="2013">2013</option>
+                                </select>
+                            </span>
+                            <span style="margin-left: 10px;">
+                                <select name="max_year" id="max_year" class="custom-select-sm">
+                                        <option selected>To </option>
+                                        <option value="2019">2019</option>
+                                        <option value="2018">2018</option>
+                                        <option value="2017">2017</option>
+                                        <option value="2016">2016</option>
+                                        <option value="2015">2015</option>
+                                        <option value="2014">2014</option>
+                                </select>
+                            </span>
+                        </div>
+                    </div>
+                
+                    </div> 
+                    <!-- Accordion card -->
+                
+                    <!-- Accordion card -->
+                    <div class="card">
+                
+                    <!-- Card header -->
+                    <div class="card-header" role="tab" id="headingThree3">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseThree3"
+                        aria-expanded="false" aria-controls="collapseThree3">
+                        <h5 class="mb-0">
+                            Make <i class="fas fa-angle-down rotate-icon"></i>
+                        </h5>
+                        </a>
+                    </div>
+                
+                    <!-- Card body -->
+                    <div id="collapseThree3" class="collapse" role="tabpanel" aria-labelledby="headingThree3"
+                        data-parent="#accordionEx">
+                        <div class="card-body">
+                            {% for cars in maker %}
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{ cars.id }}" name="make" id="{{ cars.id }}">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    {{ cars.name }}
+                                </label>
+                            </div> 
+                            {% endfor %}
+                        </div>
+                    </div>
+                
+                    </div>
+                    <!-- Accordion card -->
+                    <div class="card">
+                
+                            <!-- Card header -->
+                            <div class="card-header" role="tab" id="headingThree3">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapsefour4"
+                                aria-expanded="false" aria-controls="collapsefour4">
+                                <h5 class="mb-0">
+                                Mileage<i class="fas fa-angle-down rotate-icon"></i>
+                                </h5>
+                            </a>
+                            </div>
+                        
+                            <!-- Card body -->
+                            <div id="collapsefour4" class="collapse" role="tabpanel" aria-labelledby="headingfour4"
+                            data-parent="#accordionEx">
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="formControlRange">Mileage</label>
+                                        <input type="range" name="mileage" min="0" max="50000" id="formControlRange" class="form-control-range">
+                                    </div>
+                                </form>  
+                            </div>
+                            </div>
+                        </div>
+                        <!-- Accordion card -->
+                    <div class="card">
+                
+                            <!-- Card header -->
+                            <div class="card-header" role="tab" id="headingfive5">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapsefive5"
+                                aria-expanded="false" aria-controls="collapsefive5">
+                                <h5 class="mb-0">
+                                Body Type<i class="fas fa-angle-down rotate-icon"></i>
+                                </h5>
+                            </a>
+                            </div>
+                        
+                            <!-- Card body -->
+                            <div id="collapsefive5" class="collapse" role="tabpanel" aria-labelledby="headingThree3"
+                            data-parent="#accordionEx">
+                            <div class="card-body">
+                                {% for body in bodies %}
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="{{ body.name }}" name="body" id="defaultCheck1">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        {{ body.name }}
+                                    </label>
+                                </div>   
+                                {% endfor %}
+                            </div>
+                            </div>
+                        </div>
+                        <!-- Accordion card -->
+                    <div class="card">
+                
+                            <!-- Card header -->
+                            <div class="card-header" role="tab" id="headingsix6">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapsesix6"
+                                aria-expanded="false" aria-controls="collapsesix6">
+                                <h5 class="mb-0">
+                                Transmission <i class="fas fa-angle-down rotate-icon"></i>
+                                </h5>
+                            </a>
+                            </div>
+                        
+                            <!-- Card body -->
+                            <div id="collapsesix6" class="collapse" role="tabpanel" aria-labelledby="headingsix6"
+                            data-parent="#accordionEx">
+                            <div class="card-body">
+                                {% for m in transmis %}
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="{{ m.name }}" name="trans" id="defaultCheck1">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        {{ m.name }}
+                                    </label>
+                                </div>  
+                                {% endfor %} 
+                            </div>
+                            </div>
+                        </div>
+                        <!-- Accordion card -->
+                    <div class="card">
+                
+                            <!-- Card header -->
+                            <div class="card-header" role="tab" id="headingseven7">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseseven7"
+                                aria-expanded="false" aria-controls="collapseseven7">
+                                <h5 class="mb-0">
+                                Fuel Type <i class="fas fa-angle-down rotate-icon"></i>
+                                </h5>
+                            </a>
+                            </div>
+                        
+                            <!-- Card body -->
+                            <div id="collapseseven7" class="collapse" role="tabpanel" aria-labelledby="headingsix6"
+                            data-parent="#accordionEx">
+                            <div class="card-body">
+                                {% for value, name in fuel_choices %}
+                                <div class="form-check" style="float: left; margin-left: 10px; margin-bottom: 10px;">
+                                    <input class="form-check-input" type="checkbox" value="{{ value }}"  name="fuel" id="defaultCheck1">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                     {{ value }} <br/>
+                                    </label>
+                                </div>  
+                                {% endfor %}
+                            </div>
+                            </div>
+                        </div>
+                        <!-- Accordion card -->
+                    <div class="card">
+                
+                            <!-- Card header -->
+                            <div class="card-header" role="tab" id="headingThree3">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseThree3"
+                                aria-expanded="false" aria-controls="collapseThree3">
+                                <h5 class="mb-0">
+                                Price <i class="fas fa-angle-down rotate-icon"></i>
+                                </h5>
+                            </a>
+                            </div>
+                        
+                            <!-- Card body -->
+                            <div id="collapseThree3" class="collapse" role="tabpanel" aria-labelledby="headingThree3"
+                            data-parent="#accordionEx">
+                            <div class="card-body" style="float: left;">  
+                                    <span>
+                                        <select name="min_price" id="min_price" class=custom-select-sm>
+                                                <option selected>From</option>
+                                                <option value="2003">2003</option>
+                                                <option value="2004">2004</option>
+                                                <option value="2005">2005</option>
+                                                <option value="2006">2006</option>
+                                                <option value="2007">2007</option>
+                                                <option value="2008">2008</option>
+                                                <option value="2009">2009</option>
+                                                <option value="2010">2010</option>
+                                                <option value="2011">2011</option>
+                                                <option value="2012">2012</option>
+                                                <option value="2013">2013</option>
+                                        </select>
+                                    </span>
+                                    <span>
+                                        <select name="max_price" id="max_price" class="custom-select-sm">
+                                                <option selected>To </option>
+                                                <option value="2019">2019</option>
+                                                <option value="2018">2018</option>
+                                                <option value="2017">2017</option>
+                                                <option value="2016">2016</option>
+                                                <option value="2015">2015</option>
+                                                <option value="2014">2014</option>
+                                        </select>
+                                    </span>  
+                            </div>
+                            </div>
+                        </div>
+                        <br/>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+                <!-- Accordion wrapper -->
+                
+            </form>
+        </aside>
+        <aside class="left_widgets p_filter_widgets price_rangs_aside">
+            <div class="l_w_title">
+                <h3>Price Filter</h3>
+            </div>
+            <div class="widgets_inner">
+                <div class="range_item">
+                    <!-- <div id="slider-range"></div> -->
+                    <input type="text" class="js-range-slider" value="" />
+                    <div class="d-flex">
+                        <div class="price_text">
+                            <p>Price :</p>
+                        </div>
+                        <div class="price_value d-flex justify-content-center">
+                            <input type="text" class="js-input-from" id="amount" readonly />
+                            <span>to</span>
+                            <input type="text" class="js-input-to" id="amount" readonly />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>

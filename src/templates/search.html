@@ -1,0 +1,22 @@
+{% extends 'listbycarmake.html' %}
+
+{% block thispart %}
+
+<div class="row align-items-center latest_product_inner">
+        {% for moto in car_type %}
+       <div class="col-lg-4 col-sm-6">
+           <div class="single_product_item">
+               <a href="{{ moto.detail_url }}">
+               <img src="{{ moto.image1.url }}" alt="">
+                </a>
+               <div class="single_product_text">
+                   <h4>{{ moto.make }} - {{ moto.brand }}</h4>
+                   <h3>${{ moto.price }}.00</h3>
+                   <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+               </div>     
+           </div>
+       </div>
+       {% endfor %}
+</div>
+
+{% endblock thispart %}
